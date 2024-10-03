@@ -2,8 +2,13 @@
 /*
 Plugin Name: Remote Plugin Manager
 Description: A plugin for downloading and updating other plugins from external servers, using WordPress filesystem API.
-Version: 1.4
+Plugin URI: https://github.com/algorithmspatterns/remote-plugin-manager
+Version: 0.5
 Author: Konstantin Kryachko
+Author URI: https://websolutionist.cc/
+License: GPL v3
+License URI: https://www.gnu.org/licenses/gpl-3.0.txt
+Update URI: https://github.com/algorithmspatterns/remote-plugin-manager/archive/refs/heads/master.zip
 Text Domain: remote-plugin-manager
 Domain Path: /languages
 */
