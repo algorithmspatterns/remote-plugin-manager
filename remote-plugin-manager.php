@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: Remote Plugin Manager
-Description: A plugin for downloading and updating other plugins from external servers, including GitHub.
-Version: 1.3
+Description: A plugin for downloading and updating other plugins from external servers, using WordPress filesystem API.
+Version: 1.4
 Author: Konstantin Kryachko
 Text Domain: remote-plugin-manager
 Domain Path: /languages
@@ -75,91 +75,47 @@ function rpm_options_page() {
 
 // Функция для загрузки и обновления плагинов
 function rpm_install_plugin($url) {
+    global $wp_filesystem;
+
+    // Инициализация WordPress Filesystem API
+    if ( ! rpm_init_wp_filesystem() ) {
+        return new WP_Error('filesystem_error', __('Could not initialize filesystem.', 'remote-plugin-manager'));
+    }
+
+    // Загружаем файл по URL
     $tmp_file = download_url($url);
     
     if (is_wp_error($tmp_file)) {
-        error_log('Error downloading file: ' . $tmp_file->get_error_message());
         return $tmp_file;
     }
 
-    // Создаем уникальное временное место для распаковки
-    $tmp_dir = WP_PLUGIN_DIR . '/temp-plugin-install/';
-    if (!file_exists($tmp_dir)) {
-        mkdir($tmp_dir);
-    }
+    // Определяем имя файла плагина
+    $plugin_folder = WP_PLUGIN_DIR;
+    $destination = $plugin_folder . '/' . basename($url, '.zip'); // Директория для распаковки плагина
 
-    // Распаковываем во временную директорию
-    $unzip_result = unzip_file($tmp_file, $tmp_dir);
+    // Распаковка архива плагина в директорию плагинов
+    $unzip_result = unzip_file($tmp_file, $plugin_folder);
     unlink($tmp_file);  // Удаляем временный файл
 
     if (is_wp_error($unzip_result)) {
-        error_log('Error unzipping file: ' . $unzip_result->get_error_message());
         return $unzip_result;
     }
 
-    // Находим папку с плагином
-    $plugin_folder = rpm_find_plugin_folder($tmp_dir);
-    if ($plugin_folder) {
-        // Перемещаем содержимое в wp-content/plugins
-        error_log('Found plugin folder: ' . $plugin_folder);
-        $move_result = rpm_move_folder($plugin_folder, WP_PLUGIN_DIR);
-
-        // Проверка на успешное перемещение
-        if (is_wp_error($move_result)) {
-            error_log('Error moving folder: ' . $move_result->get_error_message());
-        } else {
-            error_log('Plugin moved successfully.');
-        }
-
-        // Удаляем временную директорию
-        rpm_delete_temp_directory($tmp_dir);
-        return true;
-    } else {
-        error_log('Plugin folder not found in ' . $tmp_dir);
-        return new WP_Error('plugin_folder_not_found', __('Plugin folder not found', 'remote-plugin-manager'));
-    }
+    return true;
 }
 
-// Поиск папки с плагином
-function rpm_find_plugin_folder($directory) {
-    $folders = glob($directory . '*/', GLOB_ONLYDIR);
-    if (!empty($folders)) {
-        return $folders[0]; // Возвращаем первую найденную папку
-    }
-    return false;
-}
+// Инициализация файловой системы WordPress
+function rpm_init_wp_filesystem() {
+    global $wp_filesystem;
 
-// Функция для перемещения папки
-function rpm_move_folder($source, $destination) {
-    $source = rtrim($source, '/');
-    $destination = rtrim($destination, '/') . '/' . basename($source);
+    require_once ABSPATH . 'wp-admin/includes/file.php';
+    $creds = request_filesystem_credentials('', '', false, false, array());
 
-    if (!file_exists($destination)) {
-        if (rename($source, $destination)) {
-            return true;
-        } else {
-            return new WP_Error('rename_failed', __('Failed to move folder', 'remote-plugin-manager'));
-        }
-    } else {
-        return new WP_Error('destination_exists', __('Destination folder already exists', 'remote-plugin-manager'));
+    if ( ! WP_Filesystem($creds) ) {
+        return false;
     }
-}
 
-// Удаление временной директории
-function rpm_delete_temp_directory($dir) {
-    if (is_dir($dir)) {
-        $objects = scandir($dir);
-        foreach ($objects as $object) {
-            if ($object != "." && $object != "..") {
-                if (is_dir($dir . "/" . $object)) {
-                    rpm_delete_temp_directory($dir . "/" . $object);
-                } else {
-                    unlink($dir . "/" . $object);
-                }
-            }
-        }
-        rmdir($dir);
-    }
+    return true;
 }
 
 // Обработка запроса на обновление плагинов
