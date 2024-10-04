@@ -1,0 +1,16 @@
+{
+  "collection_name": "Default Plugin Collection",
+  "plugins": [
+    {
+      "name": "Remote Plugin Manager",
+      "version": "0.6",
+      "url": "https://github.com/algorithmspatterns/remote-plugin-manager/archive/refs/heads/master.zip",
+      "logo": "https://placehold.co/256",
+      "screenshot": "https://placehold.co/400",
+      "description": "A plugin for downloading and updating other plugins from external servers, using WordPress filesystem API.",
+      "author": "Konstantin Kryachko",
+      "author_url": "https://websolutionist.cc/",
+      "license": "GPL v3"
+    }
+  ]
+}

@@ -3,7 +3,7 @@
 Plugin Name: Remote Plugin Manager
 Description: A plugin for downloading and updating other plugins from external servers, using WordPress filesystem API.
 Plugin URI: https://github.com/algorithmspatterns/remote-plugin-manager
-Version: 0.5
+Version: 0.6
 Author: Konstantin Kryachko
 Author URI: https://websolutionist.cc/
 License: GPL v3
@@ -12,6 +12,8 @@ Update URI: https://github.com/algorithmspatterns/remote-plugin-manager/archive/
 Text Domain: remote-plugin-manager
 Domain Path: /languages
 */
+
+require_once plugin_dir_path(__FILE__) . 'inc/masterlist-handler.php'; // Подключение файла с обработчиком коллекций
 
 // Загрузка текстового домена
 add_action('plugins_loaded', 'rpm_load_textdomain');
@@ -23,6 +25,7 @@ function rpm_load_textdomain() {
 // Хук для создания страницы настроек
 add_action('admin_menu', 'rpm_add_admin_menu');
 add_action('admin_init', 'rpm_register_settings');
+register_activation_hook(__FILE__, 'rpm_activate_plugin');
 
 function rpm_add_admin_menu() {
     add_options_page(__('Remote Plugin Manager', 'remote-plugin-manager'), __('Remote Plugin Manager', 'remote-plugin-manager'), 'manage_options', 'remote-plugin-manager', 'rpm_options_page');
@@ -50,6 +53,13 @@ function rpm_options_page() {
     ?>
     <div class="wrap">
         <h1><?php _e('Remote Plugin Manager', 'remote-plugin-manager'); ?></h1>
+        <!-- Блок выбора коллекции -->
+        <form method="post" action="">
+            <h2><?php _e('Select Plugin Collection', 'remote-plugin-manager'); ?></h2>
+            <?php rpm_display_collection_selector(); ?>
+        </form>
+        <!-- Поле для ручного добавления ссылок -->
+        <h2><?php _e('Plugin URLs', 'remote-plugin-manager'); ?></h2>
         <form method="post" action="options.php">
             <?php
             settings_fields('rpm_settings');
@@ -74,8 +84,31 @@ function rpm_options_page() {
             <input type="hidden" name="rpm_update_plugins" value="1" />
             <?php submit_button(__('Update plugins from remote servers', 'remote-plugin-manager')); ?>
         </form>
+        <!-- Блок загрузки новой коллекции по URL -->
+        <h2><?php _e('Upload Collection by URL', 'remote-plugin-manager'); ?></h2>
+        <form method="post" action="">
+            <input type="text" name="rpm_collection_url" placeholder="https://example.com/collection.json" size="50">
+            <?php submit_button(__('Download and Save Collection', 'remote-plugin-manager'), 'secondary', 'rpm_download_collection'); ?>
+        </form>
     </div>
     <?php
+}
+
+// Обработка загрузки коллекции по URL
+if (isset($_POST['rpm_download_collection'])) {
+  $url = sanitize_text_field($_POST['rpm_collection_url']);
+  rpm_download_collection($url);
+}
+
+// Добавление или замена коллекций на основе выбора
+if (isset($_POST['action'])) {
+  $file = sanitize_text_field($_POST['collection']);
+  $file_path = 'collections/' . $file;
+  if ($_POST['action'] === 'add') {
+      rpm_add_collection_urls($file_path);
+  } elseif ($_POST['action'] === 'replace') {
+      rpm_replace_collection_urls($file_path);
+  }
 }
 
 // Функция для загрузки и обновления плагинов
