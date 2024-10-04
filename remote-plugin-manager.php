@@ -283,6 +283,9 @@ function rpm_get_collection_details() {
                     }
                     echo '<p>' . __('Version:', 'remote-plugin-manager') . ' ' . esc_html($plugin['version']) . '</p>';
                     echo '<p>' . __('License:', 'remote-plugin-manager') . ' ' . esc_html($plugin['license']) . '</p>';
+                    
+                    // Добавляем кнопку "Установить/Обновить"
+                    echo '<button type="button" class="button button-primary" onclick="installPlugin(\'' . esc_url($plugin['url']) . '\')">' . __('Install/Update', 'remote-plugin-manager') . '</button>';
                     echo '</div><hr>';
                 }
             } else {
@@ -293,4 +296,47 @@ function rpm_get_collection_details() {
         }
     }
     wp_die(); // Останавливаем выполнение для AJAX
+}
+
+// Добавляем AJAX обработчик для установки плагина
+add_action('wp_ajax_rpm_install_single_plugin', 'rpm_install_single_plugin');
+function rpm_install_single_plugin() {
+    if (isset($_POST['plugin_url'])) {
+        $url = esc_url_raw($_POST['plugin_url']);
+        $result = rpm_install_plugin($url);
+
+        if (is_wp_error($result)) {
+            wp_send_json_error(array('message' => $result->get_error_message()));
+        } else {
+            wp_send_json_success(array('message' => __('Plugin installed/updated successfully!', 'remote-plugin-manager')));
+        }
+    }
+    wp_die();
+}
+
+add_action('admin_footer', 'rpm_install_plugin_script');
+function rpm_install_plugin_script() {
+    ?>
+    <script type="text/javascript">
+        function installPlugin(pluginUrl) {
+            if (confirm('<?php _e('Are you sure you want to install/update this plugin?', 'remote-plugin-manager'); ?>')) {
+                jQuery.ajax({
+                    url: ajaxurl,
+                    type: 'POST',
+                    data: {
+                        action: 'rpm_install_single_plugin',
+                        plugin_url: pluginUrl
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            alert(response.data.message);
+                        } else {
+                            alert('Error: ' + response.data.message);
+                        }
+                    }
+                });
+            }
+        }
+    </script>
+    <?php
 }
