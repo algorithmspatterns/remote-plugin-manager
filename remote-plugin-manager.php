@@ -3,7 +3,7 @@
 Plugin Name: Remote Plugin Manager
 Description: A plugin for downloading and updating other plugins from external servers, using WordPress filesystem API.
 Plugin URI: https://github.com/algorithmspatterns/remote-plugin-manager
-Version: 0.6
+Version: 0.7
 Author: Konstantin Kryachko
 Author URI: https://websolutionist.cc/
 License: GPL v3
@@ -196,12 +196,30 @@ function rpm_update_plugins() {
     $urls = get_option('rpm_plugin_urls', array());
 
     foreach ($urls as $url) {
+        // Уведомляем, что началась установка плагина
+        $plugin_name = basename($url); // Получаем имя плагина из URL
+        add_action('admin_notices', function() use ($plugin_name) {
+            echo '<div class="notice notice-info is-dismissible"><p>' . sprintf(__('Installing plugin: %s...', 'remote-plugin-manager'), esc_html($plugin_name)) . '</p></div>';
+        });
+
+        // Устанавливаем плагин
         $result = rpm_install_plugin($url);
+
         if (is_wp_error($result)) {
-            error_log(__('Error downloading plugin from ', 'remote-plugin-manager') . $url . ': ' . $result->get_error_message());
+            // Уведомление об ошибке
+            $error_message = $result->get_error_message();
+            add_action('admin_notices', function() use ($plugin_name, $error_message) {
+                echo '<div class="notice notice-error is-dismissible"><p>' . sprintf(__('Failed to install plugin: %s. Error: %s', 'remote-plugin-manager'), esc_html($plugin_name), esc_html($error_message)) . '</p></div>';
+            });
+        } else {
+            // Уведомляем об успешной установке плагина
+            add_action('admin_notices', function() use ($plugin_name) {
+                echo '<div class="notice notice-success is-dismissible"><p>' . sprintf(__('Successfully installed plugin: %s', 'remote-plugin-manager'), esc_html($plugin_name)) . '</p></div>';
+            });
         }
     }
 }
+
 
 function rpm_show_update_notice() {
     echo '<div class="notice notice-success is-dismissible"><p>' . __('All plugins have been updated.', 'remote-plugin-manager') . '</p></div>';
