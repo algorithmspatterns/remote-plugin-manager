@@ -173,9 +173,23 @@ function rpm_init_wp_filesystem() {
 add_action('admin_init', 'rpm_handle_plugin_updates');
 function rpm_handle_plugin_updates() {
     if (isset($_POST['rpm_update_plugins'])) {
-        rpm_update_plugins();
-        add_action('admin_notices', 'rpm_show_update_notice');
+        $urls = get_option('rpm_plugin_urls', array());
+
+        // Проверка, есть ли указанные URL и что хотя бы один URL не пуст
+        $urls = array_filter($urls, 'trim');  // Удаляем пустые строки из массива
+
+        if (empty($urls)) {
+            add_action('admin_notices', 'rpm_show_no_urls_notice');  // Показываем ошибку, если URL нет
+        } else {
+            rpm_update_plugins();  // Обновляем плагины только если URL существуют
+            add_action('admin_notices', 'rpm_show_update_notice');  // Показываем успех, если обновление прошло
+        }
     }
+}
+
+// Функция для вывода уведомления, если URL не указаны
+function rpm_show_no_urls_notice() {
+    echo '<div class="notice notice-error is-dismissible"><p>' . __('No plugin URLs found. Please specify plugin URLs before attempting to update or install plugins.', 'remote-plugin-manager') . '</p></div>';
 }
 
 function rpm_update_plugins() {
