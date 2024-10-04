@@ -3,10 +3,10 @@
   "plugins": [
     {
       "name": "Remote Plugin Manager",
-      "version": "0.6",
+      "version": "0.7",
       "url": "https://github.com/algorithmspatterns/remote-plugin-manager/archive/refs/heads/master.zip",
-      "logo": "https://placehold.co/256",
-      "screenshot": "https://placehold.co/400",
+      "logo": "https://cdn.pixabay.com/photo/2021/11/03/12/28/forest-6765636_1280.jpg",
+      "screenshot": "https://cdn.pixabay.com/photo/2015/12/01/20/28/forest-1072828_1280.jpg",
       "description": "A plugin for downloading and updating other plugins from external servers, using WordPress filesystem API.",
       "author": "Konstantin Kryachko",
       "author_url": "https://websolutionist.cc/",

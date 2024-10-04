@@ -270,7 +270,7 @@ function rpm_get_collection_details() {
                     echo '<div class="plugin-info">';
                     echo '<h4>' . esc_html($plugin['name']) . '</h4>';
                     if (!empty($plugin['logo'])) {
-                        echo '<img src="' . esc_url($plugin['logo']) . '" alt="' . esc_attr($plugin['name']) . ' logo" style="width:100px;height:auto;">';
+                        echo '<img src="' . esc_url($plugin['logo']) . '" alt="' . esc_attr($plugin['name']) . ' logo" style="width:140px;height:auto;">';
                     }
                     if (!empty($plugin['screenshot'])) {
                         echo '<img src="' . esc_url($plugin['screenshot']) . '" alt="' . esc_attr($plugin['name']) . ' screenshot" style="width:200px;height:auto;">';
