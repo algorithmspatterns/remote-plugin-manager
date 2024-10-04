@@ -230,3 +230,67 @@ function rpm_update_plugins() {
 function rpm_show_update_notice() {
     echo '<div class="notice notice-success is-dismissible"><p>' . __('All plugins have been updated.', 'remote-plugin-manager') . '</p></div>';
 }
+
+// JavaScript код для отображения деталей коллекции
+add_action('admin_footer', 'rpm_collection_details_script');
+function rpm_collection_details_script() {
+    ?>
+    <script type="text/javascript">
+        function showCollectionDetails(collectionFile) {
+            jQuery.ajax({
+                url: ajaxurl,
+                type: 'POST',
+                data: {
+                    action: 'rpm_get_collection_details',
+                    collection: collectionFile,
+                },
+                success: function(response) {
+                    // Отображаем данные в контейнере collection-details
+                    jQuery('#collection-details').html(response);
+                }
+            });
+        }
+    </script>
+    <?php
+}
+
+add_action('wp_ajax_rpm_get_collection_details', 'rpm_get_collection_details');
+function rpm_get_collection_details() {
+    if (isset($_POST['collection'])) {
+        $file = sanitize_text_field($_POST['collection']);
+        $file_path = plugin_dir_path(__FILE__) . 'collections/' . $file;
+
+        if (file_exists($file_path)) {
+            $json_content = file_get_contents($file_path);
+            $data = json_decode($json_content, true);
+
+            if (isset($data['plugins']) && is_array($data['plugins'])) {
+                echo '<h3>' . esc_html($data['collection_name']) . '</h3>';
+                foreach ($data['plugins'] as $plugin) {
+                    echo '<div class="plugin-info">';
+                    echo '<h4>' . esc_html($plugin['name']) . '</h4>';
+                    if (!empty($plugin['logo'])) {
+                        echo '<img src="' . esc_url($plugin['logo']) . '" alt="' . esc_attr($plugin['name']) . ' logo" style="width:100px;height:auto;">';
+                    }
+                    if (!empty($plugin['screenshot'])) {
+                        echo '<img src="' . esc_url($plugin['screenshot']) . '" alt="' . esc_attr($plugin['name']) . ' screenshot" style="width:200px;height:auto;">';
+                    }
+                    echo '<p>' . esc_html($plugin['description']) . '</p>';
+                    if (!empty($plugin['author_url'])) {
+                        echo '<p><a href="' . esc_url($plugin['author_url']) . '" target="_blank">' . esc_html($plugin['author']) . '</a></p>';
+                    } else {
+                        echo '<p>' . esc_html($plugin['author']) . '</p>';
+                    }
+                    echo '<p>' . __('Version:', 'remote-plugin-manager') . ' ' . esc_html($plugin['version']) . '</p>';
+                    echo '<p>' . __('License:', 'remote-plugin-manager') . ' ' . esc_html($plugin['license']) . '</p>';
+                    echo '</div><hr>';
+                }
+            } else {
+                echo '<p>' . __('No plugins found in this collection.', 'remote-plugin-manager') . '</p>';
+            }
+        } else {
+            echo '<p>' . __('Collection file not found.', 'remote-plugin-manager') . '</p>';
+        }
+    }
+    wp_die(); // Останавливаем выполнение для AJAX
+}

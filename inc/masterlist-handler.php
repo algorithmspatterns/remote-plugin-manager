@@ -31,10 +31,6 @@ function rpm_load_masterlist($file = 'collections/masterlist.json') {
  */
 function rpm_display_collection_selector() {
     $dir = plugin_dir_path(__DIR__) . 'collections/';
-    if ( ! is_dir( $dir ) ) {
-        echo '<p>' . __('Collections directory does not exist.', 'remote-plugin-manager') . '</p>';
-        return;
-    }
     $files = array_diff(scandir($dir), array('.', '..'));
     if (empty($files)) {
         echo '<p>' . __('No collections found. Please upload a collection.', 'remote-plugin-manager') . '</p>';
@@ -46,11 +42,17 @@ function rpm_display_collection_selector() {
             $json_content = file_get_contents($file_path);
             $data = json_decode($json_content, true);
             $collection_name = isset($data['collection_name']) ? esc_html($data['collection_name']) : esc_html(basename($file, '.json'));
-            echo "<label><input type='radio' name='collection' value='" . esc_attr($file) . "'> {$collection_name}</label><br>";
+
+            // Кнопка для отображения данных коллекции
+            echo "<label><input type='radio' name='collection' value='" . esc_attr($file) . "'> {$collection_name}</label> ";
+            echo "<button type='button' class='button button-secondary' onclick='showCollectionDetails(\"" . esc_attr($file) . "\")'>" . __('View Collection', 'remote-plugin-manager') . "</button><br>";
         }
     }
     echo "<br><button type='submit' name='action' value='add' class='button button-primary'>" . __('Add Collection URLs', 'remote-plugin-manager') . "</button> ";
     echo "<button type='submit' name='action' value='replace' class='button button-secondary'>" . __('Replace with Collection URLs', 'remote-plugin-manager') . "</button>";
+    
+    // Контейнер для вывода информации о коллекции
+    echo '<div id="collection-details"></div>';
 }
 
 /**
