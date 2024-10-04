@@ -107,7 +107,8 @@ if (isset($_POST['rpm_download_collection'])) {
 }
 
 // Добавление или замена коллекций на основе выбора
-if (isset($_POST['action'])) {
+// Проверка для коллекций должна происходить только при работе с коллекциями
+if (isset($_POST['action']) && in_array($_POST['action'], ['add', 'replace'])) {
   if (isset($_POST['collection']) && !empty($_POST['collection'])) {
       $file = sanitize_text_field($_POST['collection']);
       $file_path = 'collections/' . $file;
@@ -118,9 +119,14 @@ if (isset($_POST['action'])) {
           rpm_replace_collection_urls($file_path);
       }
   } else {
-      // Вывод сообщения об ошибке, если коллекция не выбрана
-      echo '<div class="notice notice-error is-dismissible"><p>' . __('No collection selected. Please select a collection.', 'remote-plugin-manager') . '</p></div>';
+      // Уведомление только если это действие для коллекции
+      add_action('admin_notices', 'rpm_show_no_collection_notice');
   }
+}
+
+// Уведомление, если коллекция не выбрана
+function rpm_show_no_collection_notice() {
+  echo '<div class="notice notice-error is-dismissible"><p>' . __('No collection selected. Please select a collection.', 'remote-plugin-manager') . '</p></div>';
 }
 
 
