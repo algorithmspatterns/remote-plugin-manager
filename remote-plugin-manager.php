@@ -48,6 +48,12 @@ function rpm_sanitize_urls($input) {
     return array_map('esc_url_raw', $input); // Очистка URL
 }
 
+// Инициализация при активации
+function rpm_activate_plugin() {
+  // Загружаем masterlist.json и добавляем ссылки в базу
+  rpm_load_masterlist();
+}
+
 // Отображение страницы настроек
 function rpm_options_page() {
     ?>
@@ -102,14 +108,21 @@ if (isset($_POST['rpm_download_collection'])) {
 
 // Добавление или замена коллекций на основе выбора
 if (isset($_POST['action'])) {
-  $file = sanitize_text_field($_POST['collection']);
-  $file_path = 'collections/' . $file;
-  if ($_POST['action'] === 'add') {
-      rpm_add_collection_urls($file_path);
-  } elseif ($_POST['action'] === 'replace') {
-      rpm_replace_collection_urls($file_path);
+  if (isset($_POST['collection']) && !empty($_POST['collection'])) {
+      $file = sanitize_text_field($_POST['collection']);
+      $file_path = 'collections/' . $file;
+      
+      if ($_POST['action'] === 'add') {
+          rpm_add_collection_urls($file_path);
+      } elseif ($_POST['action'] === 'replace') {
+          rpm_replace_collection_urls($file_path);
+      }
+  } else {
+      // Вывод сообщения об ошибке, если коллекция не выбрана
+      echo '<div class="notice notice-error is-dismissible"><p>' . __('No collection selected. Please select a collection.', 'remote-plugin-manager') . '</p></div>';
   }
 }
+
 
 // Функция для загрузки и обновления плагинов
 function rpm_install_plugin($url) {
