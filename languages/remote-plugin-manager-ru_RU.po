@@ -12,7 +12,7 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 msgid "Remote Plugin Manager"
-msgstr "Менеджер Удаленных Плагинов"
+msgstr "Менеджер Установки плагинов с серверов"
 
 msgid "Plugin download paths"
 msgstr "Пути для загрузки плагинов"
@@ -25,3 +25,33 @@ msgstr "Обновить плагины с удаленных серверов"
 
 msgid "All plugins have been updated."
 msgstr "Все плагины обновлены."
+
+msgid "If you find this plugin helpful, consider supporting me:"
+msgstr "Вы можете поддержать развитие плагина, если плагин полезный для вас:"
+
+msgid "Support me on Buy Me a Coffee"
+msgstr "Поддержите на Buy Me a Coffee"
+
+msgid "Installing plugin: %s..."
+msgstr "Установка плагина: %s..."
+
+msgid "Successfully installed plugin: %s"
+msgstr "Успех! Плагин установлен: %s"
+
+msgid "Failed to install plugin: %s. Error: %s"
+msgstr "Потрачено! Ошибка установки плагина: %s. Error: %s"
+
+msgid "Install/Update"
+msgstr "Установить/Обновить"
+
+msgid "Are you sure you want to install/update this plugin?"
+msgstr "Вы уверены, что хотите установить/обновить этот плагин?"
+
+msgid "No collection selected. Please select a collection."
+msgstr "Ни одной коллекции не выбрано. Пожалуйста выберите коллекцию."
+
+msgid "No plugin URLs found. Please specify plugin URLs before attempting to update or install plugins."
+msgstr "Не найдено URL плагина. Пожалуйста уточните URL плагинов до попытки установить или обновить плагины."
+
+msgid "View Collection"
+msgstr "Просмотреть коллекцию"

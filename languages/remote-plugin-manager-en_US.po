@@ -25,3 +25,33 @@ msgstr "Update plugins from remote servers"
 
 msgid "All plugins have been updated."
 msgstr "All plugins have been updated."
+
+msgid "If you find this plugin helpful, consider supporting me:"
+msgstr "If you find this plugin helpful, consider supporting me:"
+
+msgid "Support me on Buy Me a Coffee"
+msgstr "Support me on Buy Me a Coffee"
+
+msgid "Installing plugin: %s..."
+msgstr "Installing plugin: %s..."
+
+msgid "Successfully installed plugin: %s"
+msgstr "Successfully installed plugin: %s"
+
+msgid "Failed to install plugin: %s. Error: %s"
+msgstr "Failed to install plugin: %s. Error: %s"
+
+msgid "Install/Update"
+msgstr "Install/Update"
+
+msgid "Are you sure you want to install/update this plugin?"
+msgstr "Are you sure you want to install/update this plugin?"
+
+msgid "No collection selected. Please select a collection."
+msgstr "No collection selected. Please select a collection."
+
+msgid "No plugin URLs found. Please specify plugin URLs before attempting to update or install plugins."
+msgstr "No plugin URLs found. Please specify plugin URLs before attempting to update or install plugins."
+
+msgid "View Collection"
+msgstr "View Collection"
