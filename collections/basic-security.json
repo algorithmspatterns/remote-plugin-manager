@@ -1,0 +1,71 @@
+{
+  "collection_name": "Basic security",
+  "plugins": [
+    {
+      "name": "Disable XML-RPC",
+            "version": "1.0.1",
+            "url": "https://downloads.wordpress.org/plugin/disable-xml-rpc.1.0.1.zip",
+            "logo": "https://s.w.org/plugins/geopattern-icon/disable-xml-rpc.svg",
+            "screenshot": "https://ps.w.org/disable-xml-rpc/assets/screenshot-3.png?rev=2561895",
+            "description": "Pretty simply, this plugin uses the built-in WordPress filter “xmlrpc_enabled” to disable the XML-RPC API on a WordPress site running 3.5 or above.",
+            "author": "Philip Erb",
+            "author_url": "http://www.philerb.com/",
+            "license": ""
+    },
+    {
+      "name": "WPS Hide Login",
+            "version": "1.9.16.7",
+            "url": "https://downloads.wordpress.org/plugin/wps-hide-login.1.9.16.7.zip",
+            "logo": "https://ps.w.org/wps-hide-login/assets/icon-128x128.png?rev=1820667",
+            "screenshot": "https://ps.w.org/wps-hide-login/assets/screenshot-1.jpg?rev=1146909",
+            "description": "WPS Hide Login is a very light plugin that lets you easily and safely change the url of the login form page to anything you want.",
+            "author": "WPServeur, NicolasKulka, wpformation",
+            "author_url": "https://wpserveur.net/",
+            "license": ""
+    },
+    {
+      "name": "Limit Login Attempts Reloaded",
+            "version": "2.26.13",
+            "url": "https://downloads.wordpress.org/plugin/limit-login-attempts-reloaded.2.26.13.zip",
+            "logo": "https://ps.w.org/limit-login-attempts-reloaded/assets/icon-128x128.png?rev=2456910",
+            "screenshot": "https://ps.w.org/limit-login-attempts-reloaded/assets/screenshot-2.png?rev=2104751",
+            "description": "Limit Login Attempts Reloaded functions as a robust deterrent against brute force attacks, bolstering your website’s security measures and optimizing its performance. It achieves this by restricting the number of login attempts allowed. This applies not only to the standard login method, but also to XMLRPC, Woocommerce, and custom login pages.",
+            "author": "Limit Login Attempts Reloaded",
+            "author_url": "https://www.limitloginattempts.com/",
+            "license": ""
+    },
+    {
+      "name": "WPCode – Insert Headers and Footers + Custom Code Snippets – WordPress Code Manager",
+            "version": "2.2.2",
+            "url": "https://downloads.wordpress.org/plugin/insert-headers-and-footers.2.2.2.zip",
+            "logo": "https://ps.w.org/insert-headers-and-footers/assets/screenshot-4.png?rev=2758516",
+            "screenshot": "https://ps.w.org/wps-hide-login/assets/screenshot-1.jpg?rev=1146909",
+            "description": "WPCode (formerly known as Insert Headers and Footers by WPBeginner) is the most popular code snippets plugin for WordPress used by over 2 million websites. We make it easy for you to add code snippets in WordPress without having to edit your theme’s functions.php file.",
+            "author": "WPCode",
+            "author_url": "https://www.wpcode.com/",
+            "license": ""
+    },
+    {
+      "name": "Activity Log – Monitor & Record User Changes",
+            "version": "2.11.0",
+            "url": "https://downloads.wordpress.org/plugin/aryo-activity-log.2.11.0.zip",
+            "logo": "https://ps.w.org/aryo-activity-log/assets/icon-128x128.png?rev=1944199",
+            "screenshot": "https://ps.w.org/aryo-activity-log/trunk/screenshot-1.png?rev=3127444",
+            "description": "Activity Log is like an airplane’s black box that logs every action in the WordPress admin",
+            "author": "Activity Log Team",
+            "author_url": "https://activitylog.io/?utm_source=wp-plugins&utm_campaign=author-uri&utm_medium=wp-dash",
+            "license": ""
+    },
+    {
+      "name": "Simple History – Track, Log, and Audit WordPress Changes",
+            "version": "5.0.1",
+            "url": "https://downloads.wordpress.org/plugin/simple-history.zip",
+            "logo": "https://ps.w.org/simple-history/assets/icon-128x128.png?rev=3004846",
+            "screenshot": "https://ps.w.org/simple-history/assets/screenshot-3.png?rev=1463243",
+            "description": "Simple History is a powerful WordPress plugin that allows you to easily track and view changes made within your WordPress site, providing a comprehensive audit trail of user activities",
+            "author": "Pär Thernström",
+            "author_url": "https://simple-history.com/",
+            "license": ""
+    }
+  ]
+}
