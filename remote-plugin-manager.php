@@ -98,6 +98,11 @@ function rpm_options_page() {
         </form>
     </div>
     <?php
+    // ссылка на поддержку
+echo '<div style="margin-top: 20px;">';
+echo '<p>' . __('If you find this plugin helpful, consider supporting me:', 'remote-plugin-manager') . '</p>';
+echo '<a href="https://buymeacoffee.com/kriachko" target="_blank" class="button button-primary">' . __('Support me on Buy Me a Coffee', 'remote-plugin-manager') . '</a>';
+echo '</div>';
 }
 
 // Обработка загрузки коллекции по URL
