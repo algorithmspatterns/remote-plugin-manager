@@ -9,6 +9,21 @@
 - Automatically check and update plugins from external sources
 - Simplified plugin management workflow
 
+## Plugin Name and Description in Different Languages
+
+- **English**: Remote Plugin Manager - A plugin for managing and updating WordPress plugins from external servers.
+- **Русский**: Менеджер удалённых плагинов - Плагин для управления и обновления плагинов WordPress с внешних серверов.
+- **Français**: Gestionnaire de plugins à distance - Un plugin pour gérer et mettre à jour les plugins WordPress depuis des serveurs externes.
+- **Español**: Gestor de Plugins Remotos - Un plugin para gestionar y actualizar plugins de WordPress desde servidores externos.
+- **Deutsch**: Remote-Plugin-Manager - Ein Plugin zur Verwaltung und Aktualisierung von WordPress-Plugins von externen Servern.
+- **Latina**: Procurator Pluginum Remotorum - Pluginum ad moderandos et renovandos plugins WordPress ex serveris externis.
+- **Italiano**: Gestore di Plugin Remoti - Un plugin per gestire e aggiornare i plugin di WordPress da server esterni.
+- **Português**: Gerenciador de Plugins Remotos - Um plugin para gerenciar e atualizar plugins do WordPress a partir de servidores externos.
+- **中文 (Simplified Chinese)**: 远程插件管理器 - 一个用于从外部服务器管理和更新WordPress插件的插件。
+- **日本語 (Japanese)**: リモートプラグインマネージャー - 外部サーバーからWordPressプラグインを管理および更新するためのプラグインです。
+- **한국어 (Korean)**: 원격 플러그인 관리자 - 외부 서버에서 WordPress 플러그인을 관리하고 업데이트하는 플러그인입니다.
+- **العربية (Arabic)**: مدير الإضافات عن بُعد - مكون إضافي لإدارة وتحديث إضافات ووردبريس من الخوادم الخارجية.
+
 ## Available Languages
 
 - **English**: Fully translated for easy usage by the global community.
