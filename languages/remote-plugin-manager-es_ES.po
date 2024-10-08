@@ -1,0 +1,57 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+msgid "Remote Plugin Manager"
+msgstr "Gestor de plugins remotos"
+
+msgid "Plugin download paths"
+msgstr "Rutas de descarga de plugins"
+
+msgid "Enter each URL on a new line."
+msgstr "Introduzca cada URL en una nueva línea."
+
+msgid "Update plugins from remote servers"
+msgstr "Actualizar plugins desde servidores remotos"
+
+msgid "All plugins have been updated."
+msgstr "Todos los plugins han sido actualizados."
+
+msgid "If you find this plugin helpful, consider supporting me:"
+msgstr "Si encuentras útil este plugin, considera apoyarme:"
+
+msgid "Support me on Buy Me a Coffee"
+msgstr "Apóyame en Buy Me a Coffee"
+
+msgid "Installing plugin: %s..."
+msgstr "Instalando plugin: %s..."
+
+msgid "Successfully installed plugin: %s"
+msgstr "Plugin instalado con éxito: %s"
+
+msgid "Failed to install plugin: %s. Error: %s"
+msgstr "Error al instalar el plugin: %s. Error: %s"
+
+msgid "Install/Update"
+msgstr "Instalar/Actualizar"
+
+msgid "Are you sure you want to install/update this plugin?"
+msgstr "¿Está seguro de que desea instalar/actualizar este plugin?"
+
+msgid "No collection selected. Please select a collection."
+msgstr "No se ha seleccionado ninguna colección. Por favor, seleccione una colección."
+
+msgid "No plugin URLs found. Please specify plugin URLs before attempting to update or install plugins."
+msgstr "No se encontraron URLs de plugins. Por favor, especifique URLs de plugins antes de intentar actualizar o instalar."
+
+msgid "View Collection"
+msgstr "Ver colección"

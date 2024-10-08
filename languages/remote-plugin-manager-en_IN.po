@@ -1,0 +1,57 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_IN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+msgid "Remote Plugin Manager"
+msgstr "Remote Plugin Manager"
+
+msgid "Plugin download paths"
+msgstr "Plugin download paths"
+
+msgid "Enter each URL on a new line."
+msgstr "Enter each URL on a new line."
+
+msgid "Update plugins from remote servers"
+msgstr "Update plugins from remote servers"
+
+msgid "All plugins have been updated."
+msgstr "All plugins have been updated."
+
+msgid "If you find this plugin helpful, consider supporting me:"
+msgstr "If you find this plugin helpful, consider supporting me:"
+
+msgid "Support me on Buy Me a Coffee"
+msgstr "Support me on Buy Me a Coffee"
+
+msgid "Installing plugin: %s..."
+msgstr "Installing plugin: %s..."
+
+msgid "Successfully installed plugin: %s"
+msgstr "Successfully installed plugin: %s"
+
+msgid "Failed to install plugin: %s. Error: %s"
+msgstr "Failed to install plugin: %s. Error: %s"
+
+msgid "Install/Update"
+msgstr "Install/Update"
+
+msgid "Are you sure you want to install/update this plugin?"
+msgstr "Are you sure you want to install/update this plugin?"
+
+msgid "No collection selected. Please select a collection."
+msgstr "No collection selected. Please select a collection."
+
+msgid "No plugin URLs found. Please specify plugin URLs before attempting to update or install plugins."
+msgstr "No plugin URLs found. Please specify plugin URLs before attempting to update or install plugins."
+
+msgid "View Collection"
+msgstr "View Collection"

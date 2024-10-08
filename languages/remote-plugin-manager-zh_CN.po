@@ -1,0 +1,57 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+msgid "Remote Plugin Manager"
+msgstr "远程插件管理器"
+
+msgid "Plugin download paths"
+msgstr "插件下载路径"
+
+msgid "Enter each URL on a new line."
+msgstr "每行输入一个 URL。"
+
+msgid "Update plugins from remote servers"
+msgstr "从远程服务器更新插件"
+
+msgid "All plugins have been updated."
+msgstr "所有插件都已更新。"
+
+msgid "If you find this plugin helpful, consider supporting me:"
+msgstr "如果你觉得这个插件有帮助，请考虑支持我："
+
+msgid "Support me on Buy Me a Coffee"
+msgstr "在 Buy Me a Coffee 上支持我"
+
+msgid "Installing plugin: %s..."
+msgstr "正在安装插件：%s..."
+
+msgid "Successfully installed plugin: %s"
+msgstr "成功安装插件：%s"
+
+msgid "Failed to install plugin: %s. Error: %s"
+msgstr "安装插件失败：%s。错误：%s"
+
+msgid "Install/Update"
+msgstr "安装/更新"
+
+msgid "Are you sure you want to install/update this plugin?"
+msgstr "你确定要安装/更新这个插件吗？"
+
+msgid "No collection selected. Please select a collection."
+msgstr "未选择集合。请选择一个集合。"
+
+msgid "No plugin URLs found. Please specify plugin URLs before attempting to update or install plugins."
+msgstr "未找到插件 URL。请在尝试更新或安装插件之前指定插件 URL。"
+
+msgid "View Collection"
+msgstr "查看集合"

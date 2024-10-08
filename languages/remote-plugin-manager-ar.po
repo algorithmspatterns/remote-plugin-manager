@@ -1,0 +1,57 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+msgid "Remote Plugin Manager"
+msgstr "مدير الإضافات عن بُعد"
+
+msgid "Plugin download paths"
+msgstr "مسارات تحميل الإضافات"
+
+msgid "Enter each URL on a new line."
+msgstr "أدخل كل رابط على سطر جديد."
+
+msgid "Update plugins from remote servers"
+msgstr "تحديث الإضافات من الخوادم البعيدة"
+
+msgid "All plugins have been updated."
+msgstr "تم تحديث جميع الإضافات."
+
+msgid "If you find this plugin helpful, consider supporting me:"
+msgstr "إذا وجدت هذه الإضافة مفيدة، فكر في دعمي:"
+
+msgid "Support me on Buy Me a Coffee"
+msgstr "ادعمني على Buy Me a Coffee"
+
+msgid "Installing plugin: %s..."
+msgstr "جاري تثبيت الإضافة: %s..."
+
+msgid "Successfully installed plugin: %s"
+msgstr "تم تثبيت الإضافة بنجاح: %s"
+
+msgid "Failed to install plugin: %s. Error: %s"
+msgstr "فشل في تثبيت الإضافة: %s. الخطأ: %s"
+
+msgid "Install/Update"
+msgstr "تثبيت/تحديث"
+
+msgid "Are you sure you want to install/update this plugin?"
+msgstr "هل أنت متأكد من أنك تريد تثبيت/تحديث هذه الإضافة؟"
+
+msgid "No collection selected. Please select a collection."
+msgstr "لم يتم تحديد أي مجموعة. يرجى تحديد مجموعة."
+
+msgid "No plugin URLs found. Please specify plugin URLs before attempting to update or install plugins."
+msgstr "لم يتم العثور على روابط الإضافات. يرجى تحديد روابط الإضافات قبل محاولة التحديث أو التثبيت."
+
+msgid "View Collection"
+msgstr "عرض المجموعة"

@@ -1,0 +1,57 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: la\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+msgid "Remote Plugin Manager"
+msgstr "Procurator Plugin Remoti"
+
+msgid "Plugin download paths"
+msgstr "Viae ad pluginum detrahendum"
+
+msgid "Enter each URL on a new line."
+msgstr "Intra singulas URLs in nova linea."
+
+msgid "Update plugins from remote servers"
+msgstr "Plugins a remotis serveribus renovare"
+
+msgid "All plugins have been updated."
+msgstr "Omnes plugins renovati sunt."
+
+msgid "If you find this plugin helpful, consider supporting me:"
+msgstr "Si hunc pluginum utilem esse putas, considera me sustinere:"
+
+msgid "Support me on Buy Me a Coffee"
+msgstr "Sustine me in 'Buy Me a Coffee'"
+
+msgid "Installing plugin: %s..."
+msgstr "Pluginum instatur: %s..."
+
+msgid "Successfully installed plugin: %s"
+msgstr "Pluginum feliciter instatum: %s"
+
+msgid "Failed to install plugin: %s. Error: %s"
+msgstr "Pluginum instare non potuit: %s. Error: %s"
+
+msgid "Install/Update"
+msgstr "Instare/Renovare"
+
+msgid "Are you sure you want to install/update this plugin?"
+msgstr "Certusne es te hunc pluginum instare/renovare velle?"
+
+msgid "No collection selected. Please select a collection."
+msgstr "Nulla collectio selecta est. Elige collectionem quaeso."
+
+msgid "No plugin URLs found. Please specify plugin URLs before attempting to update or install plugins."
+msgstr "Nullae URL plugins repertae sunt. Quaeso URLs pluginum specifica antequam renovare aut instare temptes."
+
+msgid "View Collection"
+msgstr "Colligationem Vide"
