@@ -16,6 +16,7 @@
 - **Français**: Le plugin est traduit en français pour une utilisation facile dans les pays francophones.
 - **Español**: El plugin está traducido al español para facilitar su uso en los países de habla hispana.
 - **Deutsch**: Das Plugin wurde ins Deutsche übersetzt, um die Nutzung im deutschsprachigen Raum zu erleichtern.
+- **Latina**: Pluginum in linguam Latinam conversum est ad usum latine loquentium.
 - **Italiano**: Il plugin è stato tradotto in italiano per facilitare l'uso nei paesi di lingua italiana.
 - **Português**: O plugin foi traduzido para português para facilitar o uso em países de língua portuguesa.
 - **中文 (Simplified Chinese)**: 插件已翻译为简体中文，以方便中国用户使用。
